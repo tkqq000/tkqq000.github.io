@@ -104,3 +104,5 @@ theme: butterfly
 deploy:
   type: git
   repo: https://github.com/tkqq000/tkqq000.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  branch: gh-pages
+  message: Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }})
