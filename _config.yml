@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Rae
-subtitle: '个人博客'
-description: '编程 快乐生活 个人博客 技术博客'
+title: Rae's Blog
+subtitle: 
+description: '快乐生活'
 keywords:
 author: Rae
 language: zh-CN
@@ -13,7 +13,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://tkqq000.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -68,8 +68,15 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+	编程: programming
+	生活: life
+	其他: other
 tag_map:
-
+  感悟: thoughts
+  段子: funny
+  图片: picture
+  标签1: tag1
+  标签2: tag2
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
@@ -105,4 +112,3 @@ deploy:
   type: git
   repo: https://github.com/tkqq000/tkqq000.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: gh-pages
-  message: Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }})

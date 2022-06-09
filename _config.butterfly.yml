@@ -624,15 +624,15 @@ aside:
   archives: true
   card_author:
     enable: true
-    description:
+    description: 主人什么也没留下..
     button:
       enable: true
       icon: fab fa-github
-      text: Follow Me
-      link: https://github.com/xxxxxx
+      text: 关注我
+      link: https://github.com/tkqq000
   card_announcement:
     enable: true
-    content: This is my Blog
+    content: 吃喝等死
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
