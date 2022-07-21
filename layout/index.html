@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GMeet Layout</title>
+<script src="layouts.js"></script>
+</head>
+<style>
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* background-color: lightslategray; */
+}
+
+#sl {
+    width: 300px;
+    height: 40px;
+}
+
+#video-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(133, 137, 141);
+}
+.video-box {
+    background-color: rgb(0, 0, 0);
+    border: 3px solid #3c3636;
+    position: absolute;
+}
+</style>
+<body>
+    <select id="sl" onChange="onChange(this)"></select>
+    <div id="video-container"></div>
+</body>
+<script>
+
+    var sl = document.getElementById("sl");
+    layouts.configuration.layoutsettings.layouts.layout.forEach(element => {
+        sl.options.add(new Option(element.name, element.name));
+    });
+    
+    onChange = (_sl) =>
+    {
+        var index = _sl.selectedIndex;
+        var layout = layouts.configuration.layoutsettings.layouts.layout[index];
+        console.log("current layout", layout);
+
+        var container = document.getElementById("video-container");
+        container.innerHTML="";
+
+        const slHeight = 40;
+        const border = 3;
+
+        var width = (container.style.width || container.clientWidth || container.offsetWidth || container.scrollWidth) - border * 2; 
+        var height = (container.style.height || container.clientHeight || container.offsetHeight || container.scrollHeight) - slHeight - border * 2; 
+        console.log("current width", width, height);
+
+        var videoBoxs = "";
+        
+        // 1X1
+        if (!Array.isArray(layout.image))
+        {
+            layout.image = [layout.image]
+        }
+        layout.image.forEach(i => {
+            var left = i.x / 360 * width;
+            var top = i.y / 360 * height + slHeight;
+            var vWidth = i.scale / 360 * width;
+            if (i.hscale)
+            {
+                var vHeight = i.hscale / 360 * height;
+            }
+            else
+            {
+                var vHeight = i.scale / 360 * height;
+            }
+            var boxHtml = "<div class='video-box' style='width:"+ vWidth +"px;height:" + vHeight + "px;left:" + left + "px;top:" + top + "px'></div>"
+            videoBoxs += boxHtml;
+        })
+
+        container.innerHTML = videoBoxs;
+    }
+
+    window.onresize=()=>{
+        onChange(document.getElementById("sl"))
+    }
+    window.onload=()=>{
+        onChange(document.getElementById("sl"))
+    }
+</script>
+</html>
