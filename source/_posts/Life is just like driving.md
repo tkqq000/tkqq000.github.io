@@ -1,7 +1,8 @@
 ---
 title: Life is just like driving
 date: 2022-12-06 09:55:17
-tags: [thoughts,标签1]
+categories: 生活
+tags: [浮生]
 comments: true
 cover: /images/2022/life-coffee.png
 ---
